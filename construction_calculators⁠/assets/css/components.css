@@ -1,0 +1,723 @@
+/**
+ * @fileoverview Универсальные компоненты: панели, инпуты, кнопки, чипсы, аккордеоны.
+ * Строгая геометрия (sharp edges, border-radius: 0), палитра Slate Green.
+ */
+
+/* ==========================================================================
+   1. Кнопки (.btn)
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 0 !important;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  text-decoration: none !important;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-text-main);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: var(--color-surface-hover);
+}
+
+.btn-sm {
+  min-height: 38px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+
+.btn-remove {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger-border);
+  font-size: 1.1rem;
+}
+
+.btn-remove:hover {
+  background: var(--color-danger);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   2. Карточки и панели (.panel, .card)
+   ========================================================================== */
+
+.panel,
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0 !important;
+  padding: 18px 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-text-main);
+}
+
+.panel-num {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.panel-sub {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin: -10px 0 14px;
+}
+
+/* ==========================================================================
+   3. Строки ввода и поля (.field-row, .field-input, .badge-letter)
+   ========================================================================== */
+
+.field-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 8px 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.field-row.field-row-stack {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.field-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Квадратный бейдж буквы (L, B, H, M1, S1) */
+.badge-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  border-radius: 0 !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.field-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0 !important;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.field-input:focus-within {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.field-input input,
+.field-input select {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  outline: none;
+  border-radius: 0 !important;
+}
+
+.field-unit {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.field-hint {
+  display: flex;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin: 6px 0 14px;
+  line-height: 1.4;
+}
+
+.field-input input::placeholder {
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+}
+
+.field-input select:has(option[value=""]:checked) {
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+}
+
+.field-input.bad {
+  border-color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
+
+/* Традиционная вертикальная форма (.form-group) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.form-group input,
+.form-group select {
+  height: 44px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--color-text-main);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0 !important;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+/* ==========================================================================
+   4. Чипсы выбора запаса бетона (.chips, .chip)
+   ========================================================================== */
+
+.chips {
+  border: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.chips-legend {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.chip input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+
+.chip > span {
+  display: block;
+  min-width: 52px;
+  padding: 9px 12px;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  user-select: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 0 !important;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+/* Выбранный чипс в серо-зелёном стиле */
+.chip input:checked + span {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.chip-custom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 0 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 0 !important;
+}
+
+.chip-custom input {
+  width: 4rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  outline: none;
+  border-radius: 0 !important;
+}
+
+/* ==========================================================================
+   5. Аккордеоны модулей (.acc) и прямоугольные переключатели (.sw)
+   ========================================================================== */
+
+.acc-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.acc {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 0 !important;
+}
+
+.acc-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  list-style: none;
+  min-height: 54px;
+  user-select: none;
+}
+
+.acc-summary::-webkit-details-marker {
+  display: none;
+}
+
+.acc-summary::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--color-text-muted);
+  border-bottom: 2px solid var(--color-text-muted);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: transform var(--transition-fast);
+}
+
+.acc[open] > .acc-summary::after {
+  transform: rotate(-135deg);
+}
+
+.acc-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--color-border);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  border-radius: 0 !important;
+}
+
+.acc-head {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.acc-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.acc-status {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.acc-status.on {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.acc-body {
+  padding: 10px 14px 16px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* Строгий прямоугольный свитч */
+.sw {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  position: relative;
+  width: 44px;
+  height: 24px;
+  margin: 0;
+  background: var(--color-border);
+  cursor: pointer;
+  border-radius: 0 !important;
+  transition: background var(--transition-fast);
+}
+
+.sw::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 0 !important;
+  transition: transform var(--transition-fast);
+}
+
+.sw:checked {
+  background: var(--color-primary);
+}
+
+.sw:checked::after {
+  transform: translateX(20px);
+}
+
+.acc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.acc-toggle-bare {
+  justify-content: flex-end;
+}
+
+.acc-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  transition: opacity 0.15s;
+}
+
+.acc-fields:disabled {
+  opacity: 0.45;
+}
+
+.acc-fields:disabled .field-input {
+  background: var(--color-surface-hover);
+}
+
+.acc-fields[hidden] {
+  display: block !important;
+}
+
+/* ==========================================================================
+   6. Тултипы и подсказки (.hint-tip)
+   ========================================================================== */
+
+.hint-tip {
+  display: inline-block;
+  position: relative;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.hint-tip summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 0 !important;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hint-tip summary::-webkit-details-marker {
+  display: none;
+}
+
+.hint-tip[open] summary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.hint-dropdown {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 8px);
+  z-index: 50;
+  width: 250px;
+  padding: 10px 12px;
+  background: #141816;
+  color: #f4f5f2;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  font-weight: 400;
+  border-radius: 0 !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 480px) {
+  .hint-dropdown {
+    left: -100px;
+    width: 220px;
+  }
+}
+
+/* ==========================================================================
+   7. Сообщения и алерты (.alert-box)
+   ========================================================================== */
+
+.alert-box {
+  padding: 12px 14px;
+  border-radius: 0 !important;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+}
+
+.alert-danger {
+  background-color: var(--color-danger-bg);
+  border: 1px solid var(--color-danger-border);
+  color: var(--color-danger);
+}
+
+.alert-warning {
+  background-color: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-border);
+  color: var(--color-warning);
+}
+
+/* ==========================================================================
+   Главный экран: Каталог калькуляторов и поиск (Прямые углы + крупный шрифт)
+   ========================================================================== */
+
+.catalog-hero {
+  margin-bottom: 24px;
+}
+
+.catalog-title {
+  font-size: clamp(1.65rem, 5.2vw, 2.05rem);
+  font-weight: 800;
+  color: var(--color-text-main, #0f172a);
+  letter-spacing: -0.025em;
+  margin: 0 0 8px 0;
+  line-height: 1.18;
+}
+
+.catalog-subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.48;
+  margin: 0 0 18px 0;
+  max-width: 680px;
+}
+
+/* Строка поиска калькулятора */
+.catalog-search-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.catalog-search-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 44px 0 16px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 0 !important; /* Строгие прямые углы */
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--color-text-main, #0f172a);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast, 0.15s ease), box-shadow var(--transition-fast, 0.15s ease);
+}
+
+.catalog-search-input:focus {
+  border-color: #2e4d41;
+  box-shadow: 0 0 0 2px rgba(46, 77, 65, 0.15);
+}
+
+.catalog-search-input::placeholder {
+  color: #94a3b8;
+  font-size: 0.92rem;
+}
+
+.catalog-search-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 19px;
+  height: 19px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+/* Категории (01 / Фундаменты) */
+.catalog-section {
+  margin-bottom: 24px;
+}
+
+.catalog-group-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-text-main, #0f172a);
+  letter-spacing: -0.015em;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.catalog-group-title .group-num {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Список прямоугольных карточек */
+.catalog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Карточка калькулятора */
+.catalog-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 0 !important; /* Строгие прямые углы */
+  padding: 16px 18px;
+  text-decoration: none !important;
+  color: inherit;
+  transition: border-color var(--transition-fast, 0.15s ease), background-color var(--transition-fast, 0.15s ease);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.catalog-card:hover {
+  border-color: #cbd5e1;
+  background-color: #fafbf9;
+}
+
+.catalog-card:active {
+  transform: scale(0.995);
+}
+
+.catalog-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Крупный заголовок */
+.catalog-card-title {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--color-text-main, #0f172a);
+  margin: 0 0 5px 0;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+/* Читаемый текст описания */
+.catalog-card-desc {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Блок чертежа */
+.catalog-card-art {
+  width: 95px;
+  height: 55px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueprint-svg {
+  width: 100%;
+  height: auto;
+  max-height: 55px;
+  display: block;
+}

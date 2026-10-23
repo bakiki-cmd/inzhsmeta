@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приёмочные тесты — Мастер-спецификация v1.3</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 16px; background: #0f172a; color: #f8fafc; margin: 0; }
+    h1 { font-size: 1.25rem; margin-bottom: 8px; }
+    .summary { margin-bottom: 16px; font-weight: bold; padding: 10px 14px; border-radius: 8px; }
+    .summary.all-pass { background: #065f46; color: #a7f3d0; }
+    .summary.has-fail { background: #991b1b; color: #fecaca; }
+    .test-list { display: flex; flex-direction: column; gap: 8px; }
+    .test-card { padding: 10px 14px; border-radius: 6px; background: #1e293b; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+    .pass { border-left: 4px solid #10b981; }
+    .fail { border-left: 4px solid #ef4444; }
+    .badge { font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
+    .badge.pass { background: #064e3b; color: #6ee7b7; border-left: none; }
+    .badge.fail { background: #7f1d1d; color: #fca5a5; border-left: none; }
+    .details { font-size: 0.8rem; color: #94a3b8; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Приёмочные тесты (Раздел 7 Спецификации)</h1>
+  <div id="summary" class="summary">Выполнение тестов...</div>
+  <div id="list" class="test-list"></div>
+
+  <script type="module">
+    import { runAcceptanceTests } from './run-tests.js';
+
+    const results = runAcceptanceTests();
+    const listEl = document.getElementById('list');
+    const summaryEl = document.getElementById('summary');
+
+    let passedCount = 0;
+
+    results.forEach(t => {
+      if (t.passed) passedCount++;
+      const card = document.createElement('div');
+      card.className = `test-card ${t.passed ? 'pass' : 'fail'}`;
+      card.innerHTML = `
+        <div>
+          <div>${t.name}</div>
+          <div class="details">Ожидалось: ${t.expected} ${t.unit} | Получено: ${t.actual.toFixed(4)} ${t.unit}</div>
+        </div>
+        <span class="badge ${t.passed ? 'pass' : 'fail'}">${t.passed ? 'PASS' : 'FAIL'}</span>
+      `;
+      listEl.appendChild(card);
+    });
+
+    if (passedCount === results.length) {
+      summaryEl.className = 'summary all-pass';
+      summaryEl.textContent = `✓ Все тесты пройдены: ${passedCount} из ${results.length} успешно`;
+    } else {
+      summaryEl.className = 'summary has-fail';
+      summaryEl.textContent = `✗ Ошибки: ${passedCount} успешно, ${results.length - passedCount} провалено`;
+    }
+  </script>
+</body>
+</html>

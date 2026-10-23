@@ -1,0 +1,195 @@
+/**
+ * @fileoverview Структурная разметка страниц и контейнеры.
+ * Строгая геометрия без скруглений (0px), чистая палитра Slate Green.
+ */
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* ==========================================================================
+   Шапка сайта (Глубокий скандинавский Slate Green #37534a)
+   ========================================================================== */
+
+.site-header {
+  background-color: var(--color-primary); /* Фирменный глубокий зелёный */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px; /* Компактная высота для экранов смартфонов */
+}
+
+/* Логотип */
+.logo {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none !important;
+  letter-spacing: -0.02em;
+}
+
+/* Прямоугольный бейдж PRO */
+.logo-badge {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 0 !important;
+  letter-spacing: 0.06em;
+}
+
+/* Ссылка на связь / рекламу справа */
+.header-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0 !important;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.header-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Строка возврата под шапкой (← Все калькуляторы) */
+.nav-back {
+  margin-bottom: 12px;
+}
+
+.nav-back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-back a:hover {
+  color: var(--color-primary);
+}
+
+
+/* Основной контент */
+.site-main {
+  flex: 1;
+  padding-top: 20px;
+  padding-bottom: 48px;
+}
+
+/* Хлебные крошки (как над заголовком на макете) */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  margin-bottom: 10px;
+}
+
+.breadcrumbs a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-primary);
+}
+
+/* Hero-блок (заголовок страницы и описание) */
+.hero-section {
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.025em;
+}
+
+.hero-subtitle {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+/* Подвал (гармоничный тёмно-графитовый оттенок без синевы) */
+.site-footer {
+  background: #141816;
+  color: #9ea59f;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  margin-top: auto;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-disclaimer {
+  color: #69706b;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #232a26;
+}
+
+.footer-bottom a {
+  color: #9ea59f;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+  .header-inner {
+    height: 64px;
+  }
+}

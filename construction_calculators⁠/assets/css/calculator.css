@@ -1,0 +1,575 @@
+/**
+ * @fileoverview Специфичные стили калькулятора плитного фундамента:
+ * шапка с чертежом, блок результатов, ведомость материалов, формулы, FAQ и печать.
+ * Строгая геометрия (sharp edges, border-radius: 0), палитра Slate Green.
+ */
+
+/* ==========================================================================
+   1. Шапка калькулятора (Заголовок слева, 3D-плита справа)
+   ========================================================================== */
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
+  gap: 8px 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hero-text {
+  display: contents;
+}
+
+.hero-split .hero-title {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-text-main);
+  letter-spacing: -0.02em;
+}
+
+.hero-art {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.hero-art svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-split .hero-subtitle {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 4px 0 0;
+}
+
+@media (min-width: 768px) {
+  .hero-split {
+    gap: 16px 24px;
+    margin-bottom: 24px;
+  }
+  .hero-split .hero-title {
+    font-size: 2.1rem;
+  }
+  .hero-split .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-art {
+    max-width: 280px;
+    margin-left: auto;
+  }
+}
+
+/* ==========================================================================
+   2. Блок результатов (Крупные цифры объёма бетона)
+   ========================================================================== */
+.results-container {
+  margin-top: 24px;
+}
+
+.result-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+  border-radius: 0 !important;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.result-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.result-col + .result-col {
+  border-left: 1px solid var(--color-border);
+  padding-left: 16px;
+}
+
+.result-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.result-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text-main);
+  letter-spacing: -0.02em;
+}
+
+.result-col-main .result-value {
+  font-size: 1.95rem;
+  color: var(--color-primary);
+}
+
+.result-sub {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+.result-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.result-actions .btn {
+  flex: 1;
+}
+
+/* ==========================================================================
+   3. Интерактивный динамический SVG-чертёж
+   ========================================================================== */
+.visualizer-container {
+  margin: 16px 0;
+}
+
+.visualizer-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 0 !important;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.schema-svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+/* Размерные линии чертежа — серо-зелёные вместо ярко-синих */
+.schema-svg path,
+.schema-svg line {
+  stroke: var(--color-primary) !important;
+}
+
+.schema-svg text {
+  fill: var(--color-primary) !important;
+  font-family: var(--font-family);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   4. Таблица ведомости материалов и сметы
+   ========================================================================== */
+.subsection-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  margin: 20px 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.report-table tr {
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.report-table tr:last-child {
+  border-bottom: none;
+}
+
+.report-row-header td {
+  padding: 10px 8px;
+  background: var(--color-surface-hover);
+  color: var(--color-text-main);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.col-label {
+  padding: 10px 8px 10px 0;
+  color: var(--color-text-main);
+  vertical-align: middle;
+  line-height: 1.35;
+}
+
+.col-value {
+  padding: 10px 0 10px 8px;
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.col-value strong {
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.label-sub {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* Строка итоговой стоимости в смете */
+.row-cost-highlight {
+  background: var(--color-surface-hover);
+}
+
+.row-cost-highlight .val-cost {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   5. Математическая раскладка (Формулы)
+   ========================================================================== */
+.report-steps {
+  margin-top: 16px;
+  border-top: 1px dashed var(--color-border);
+  padding-top: 12px;
+}
+
+.steps-collapsible summary {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.steps-list {
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.steps-list code {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background: var(--color-surface-hover);
+  padding: 6px 10px;
+  border-left: 2px solid var(--color-primary);
+  color: var(--color-text-main);
+}
+
+/* ==========================================================================
+   6. Вопросы и ответы (FAQ)
+   ========================================================================== */
+.faq-section {
+  margin-top: 32px;
+}
+
+.faq-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--color-text-main);
+  letter-spacing: -0.01em;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-item {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 0 !important;
+}
+
+.faq-question {
+  padding: 12px 14px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "+";
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1;
+}
+
+.faq-item[open] .faq-question::after {
+  content: "–";
+}
+
+.faq-answer {
+  padding: 0 14px 14px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* ==========================================================================
+   7. Печать на А4 (@media print)
+   ========================================================================== */
+/* ==========================================================================
+   Стили генерации фирменного PDF / Печати на А4
+   ========================================================================== */
+
+/* В обычном интерфейсе печатаемые блоки скрыты */
+.print-header,
+.print-footer {
+  display: none;
+}
+
+@media print {
+  /* 1. Настройка листа А4 и принудительное сохранение цветов */
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 12mm 15mm;
+  }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 2. Скрываем веб-элементы: шапку сайта, форму ввода, кнопки, FAQ, тултипы */
+  header,
+  footer,
+  nav,
+  .site-header,
+  .nav-back,
+  .hero-section,
+  #slab-form,
+  .result-actions,
+  .steps-collapsible,
+  #form-warn,
+  .faq-section,
+  .hint-tip {
+    display: none !important;
+  }
+
+  /* 3. Базовый сброс фона документа */
+  body {
+    background: #ffffff !important;
+    color: #181d1a !important;
+    font-size: 9.5pt;
+    line-height: 1.35;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .panel,
+  .card,
+  .report-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  /* 4. Фирменная шапка документа */
+  .print-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-primary);
+    margin-bottom: 14px;
+  }
+
+  .print-logo {
+    font-size: 16pt;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .print-logo span {
+    font-size: 8pt;
+    background: var(--color-primary);
+    color: #ffffff;
+    padding: 1px 4px;
+    vertical-align: middle;
+  }
+
+  .print-tagline {
+    font-size: 7.5pt;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+  }
+
+  .print-meta {
+    font-size: 8pt;
+    text-align: right;
+    color: var(--color-text-main);
+    line-height: 1.4;
+  }
+
+  /* 5. Блок ключевых цифр бетона (плашка на всю ширину) */
+  .result-hero {
+    display: flex !important;
+    background: #f4f5f2 !important;
+    border: 1px solid var(--color-border) !important;
+    padding: 10px 14px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .result-col {
+    flex: 1;
+  }
+
+  .result-col + .result-col {
+    border-left: 1px solid #dcdfd9 !important;
+    padding-left: 14px !important;
+  }
+
+  .result-value {
+    font-size: 16pt !important;
+    font-weight: 800;
+    color: var(--color-text-main);
+  }
+
+  .result-col-main .result-value {
+    color: var(--color-primary) !important;
+  }
+
+  /* 6. Таблица спецификации */
+  .report-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 8.5pt !important;
+  }
+
+  .report-row-header td {
+    background: #e9ece7 !important;
+    color: var(--color-primary) !important;
+    font-weight: 800 !important;
+    font-size: 8pt !important;
+    padding: 6px 8px !important;
+    border-top: 1px solid var(--color-primary) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+  }
+
+  .report-table td {
+    padding: 5px 6px !important;
+    border-bottom: 1px solid #edf0ec !important;
+  }
+
+  .col-value strong {
+    color: var(--color-primary) !important;
+  }
+
+  /* Строка итоговой суммы */
+  .row-cost-highlight {
+    background: #eef2ef !important;
+  }
+
+  .val-cost {
+    font-size: 11pt !important;
+    color: var(--color-primary) !important;
+  }
+
+  /* Защита от разрыва таблицы на стыке страниц */
+  .report-table,
+  .visualizer-card {
+    page-break-inside: avoid;
+  }
+
+  /* 7. Подвал документа с местом для подписей */
+  .print-footer {
+    display: block !important;
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-border);
+    page-break-inside: avoid;
+  }
+
+  .print-signatures {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 12px;
+  }
+
+  .sig-col {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .sig-label {
+    font-size: 8pt;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--color-text-muted);
+  }
+
+  .sig-line {
+    flex: 1;
+    border-bottom: 1px solid #181d1a;
+    height: 1px;
+    margin-bottom: 2px;
+  }
+
+  .print-footnote {
+    font-size: 7pt;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+}

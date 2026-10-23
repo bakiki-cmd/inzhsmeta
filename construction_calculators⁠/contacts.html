@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты и сотрудничество — ИнжСмета PRO</title>
+  <meta name="description" content="Обратная связь, сообщения об ошибках, предложения по новым калькуляторам и вопросы сотрудничества.">
+  <link rel="canonical" href="https://inzhsmeta.ru/contacts.html">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <style>
+    /* Стили для страницы контактов (прямые углы) */
+    .contacts-hero {
+      margin-bottom: 24px;
+    }
+
+    .contacts-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-primary, #2e4d41);
+      text-decoration: none;
+      margin-bottom: 12px;
+    }
+
+    .contacts-back-link:hover {
+      text-decoration: underline;
+    }
+
+    .contacts-title {
+      font-size: clamp(1.65rem, 5.2vw, 2.05rem);
+      font-weight: 800;
+      color: var(--color-text-main, #0f172a);
+      letter-spacing: -0.025em;
+      margin: 0 0 8px 0;
+      line-height: 1.18;
+    }
+
+    .contacts-subtitle {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 680px;
+    }
+
+    /* Главная карточка с почтой */
+    .contact-email-card {
+      background: var(--color-surface, #ffffff);
+      border: 1px solid var(--color-border, #e2e8f0);
+      border-radius: 0 !important;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    .contact-email-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .contact-email-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-email-link {
+      font-size: clamp(1.15rem, 4vw, 1.35rem);
+      font-weight: 800;
+      color: var(--color-primary, #2e4d41);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-email-link:hover {
+      text-decoration: underline;
+    }
+
+    .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: inherit;
+      color: var(--color-text-main, #0f172a);
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 0 !important;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-copy:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+    }
+
+    .btn-copy:active {
+      transform: scale(0.98);
+    }
+
+    /* Блоки причин для обращения */
+    .contact-topics-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-topic-item {
+      background: var(--color-surface, #ffffff);
+      border: 1px solid var(--color-border, #e2e8f0);
+      border-radius: 0 !important;
+      padding: 16px 18px;
+    }
+
+    .contact-topic-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .contact-topic-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-primary, #2e4d41);
+      background: rgba(46, 77, 65, 0.08);
+      padding: 2px 6px;
+    }
+
+    .contact-topic-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--color-text-main, #0f172a);
+      margin: 0;
+    }
+
+    .contact-topic-desc {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.45;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Хедер Slate Green -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="logo">
+        ИнжСмета <span class="logo-badge">PRO</span>
+      </a>
+      <nav class="header-nav">
+        <a href="./contacts.html" class="header-link active">Связь / Реклама</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+
+      <!-- Заголовок страницы -->
+      <section class="contacts-hero">
+        <a href="./index.html" class="contacts-back-link">
+          &larr; На главную
+        </a>
+        <h1 class="contacts-title">Связь и реклама</h1>
+        <p class="contacts-subtitle">
+          По всем вопросам работы сервиса, предложений по улучшению и коммерческого сотрудничества пишите напрямую:
+        </p>
+      </section>
+
+      <!-- Блок с почтой -->
+      <section class="contact-email-card">
+        <div class="contact-email-label">Электронная почта</div>
+        <div class="contact-email-row">
+          <a href="mailto:bkiyazbek@mail.ru" class="contact-email-link" id="email-text">bkiyazbek@mail.ru</a>
+          <button type="button" class="btn-copy" id="copy-email-btn" aria-label="Скопировать почту">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="0" ry="0"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span id="copy-btn-text">Скопировать</span>
+          </button>
+        </div>
+      </section>
+
+
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-disclaimer">
+        ИнжСмета PRO — инженерные онлайн-калькуляторы строительных конструкций.
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 ИнжСмета PRO</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Скрипт копирования почты -->
+  <script>
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-btn-text');
+    const emailToCopy = 'bkiyazbek@mail.ru';
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(emailToCopy);
+        copyText.textContent = 'Скопировано!';
+        copyBtn.style.backgroundColor = '#dcfce7';
+        copyBtn.style.borderColor = '#86efac';
+
+        setTimeout(() => {
+          copyText.textContent = 'Скопировать';
+          copyBtn.style.backgroundColor = '';
+          copyBtn.style.borderColor = '';
+        }, 2000);
+      } catch (err) {
+        window.location.href = `mailto:${emailToCopy}`;
+      }
+    });
+  </script>
+
+</body>
+</html>

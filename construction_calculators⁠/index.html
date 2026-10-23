@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ИнжСмета PRO — Профессиональные строительные калькуляторы</title>
+  <meta name="description" content="Инженерные калькуляторы расчёта материалов, бетона, арматуры и смет по СП и ГОСТ.">
+  <link rel="canonical" href="https://inzhsmeta.ru/">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <!-- Хедер Slate Green -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="logo">
+        ИнжСмета <span class="logo-badge">PRO</span>
+      </a>
+      <nav class="header-nav">
+        <a href="./contacts.html" class="header-link">Связь / Реклама</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      
+      <!-- Заголовок и поиск -->
+      <section class="catalog-hero">
+        <h1 class="catalog-title">Строительные калькуляторы</h1>
+        <p class="catalog-subtitle">
+          Профессиональный расчёт объёмов материалов, опалубки и смет. Выберите нужный тип конструкции:
+        </p>
+
+        <div class="catalog-search-wrap">
+          <input 
+            type="search" 
+            id="calc-search" 
+            class="catalog-search-input" 
+            placeholder="Поиск калькулятора..." 
+            autocomplete="off"
+            aria-label="Поиск строительного калькулятора"
+          >
+          <svg class="catalog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+      </section>
+
+      <!-- 01 / Фундаменты -->
+      <section class="catalog-section" data-group="fundament">
+        <h2 class="catalog-group-title"><span class="group-num">01 /</span> Фундаменты</h2>
+        <div class="catalog-list">
+
+          <!-- 1. Плитный фундамент (без размерных линий и букв) -->
+          <a href="./calculator-fundamenta/calculator-plitnogo-fundamenta/index.html" class="catalog-card">
+            <div class="catalog-card-info">
+              <h3 class="catalog-card-title">Плитный фундамент</h3>
+              <p class="catalog-card-desc">Расчёт монолитной плиты, арматуры и опалубки по СП 63.13330.</p>
+            </div>
+            <div class="catalog-card-art">
+              <svg viewBox="0 0 100 60" class="blueprint-svg">
+                <!-- Верхняя плоскость плиты -->
+                <polygon points="14,30 54,14 88,26 48,42" fill="#f8fafc" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round"/>
+                <!-- Левый торец -->
+                <polygon points="14,30 48,42 48,50 14,38" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round"/>
+                <!-- Правый торец (затенённый) -->
+                <polygon points="48,42 88,26 88,34 48,50" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 2. Ленточный фундамент (монолитный замкнутый контур с перемычкой) -->
+          <a href="./404.html" class="catalog-card">
+            <div class="catalog-card-info">
+              <h3 class="catalog-card-title">Ленточный фундамент</h3>
+              <p class="catalog-card-desc">Для жилых домов, бань и заборов. Расчёт бетона, арматуры, опалубки и земляных работ.</p>
+            </div>
+            <div class="catalog-card-art">
+              <svg viewBox="0 0 100 60" class="blueprint-svg">
+                <!-- Внутренние задние стенки проёмов -->
+                <polygon points="27,27 44,20 44,26 27,33" fill="#cbd5e1"/>
+                <polygon points="56,20 73,27 73,33 56,26" fill="#94a3b8"/>
+                
+                <!-- Верхняя плоскость монолитной ленты с проёмами и перемычкой -->
+                <path d="M 12,25 L 50,10 L 88,25 L 50,40 Z 
+                         M 21,25 L 44,16 L 44,34 L 21,25 Z 
+                         M 56,16 L 79,25 L 56,34 L 56,16 Z" 
+                      fill="#f8fafc" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round" fill-rule="evenodd"/>
+
+                <!-- Внешний левый торец -->
+                <polygon points="12,25 50,40 50,49 12,34" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round"/>
+                <!-- Внешний правый торец -->
+                <polygon points="50,40 88,25 88,34 50,49" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- 02 / Стены и перекрытия -->
+      <section class="catalog-section" data-group="walls">
+        <h2 class="catalog-group-title"><span class="group-num">02 /</span> Стены и перекрытия</h2>
+        <div class="catalog-list">
+
+          <!-- 3. Стены из блоков (пропорциональная изометрическая стена с перевязкой) -->
+          <a href="./calculator-steny/index.html" class="catalog-card">
+            <div class="catalog-card-info">
+              <h3 class="catalog-card-title">Стены из блоков</h3>
+              <p class="catalog-card-desc">Расчёт блоков, кирпича, кладочной сетки и раствора.</p>
+            </div>
+            <div class="catalog-card-art">
+              <svg viewBox="0 0 100 60" class="blueprint-svg">
+                <!-- Верх стены -->
+                <polygon points="18,22 62,8 82,15 38,29" fill="#f8fafc" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round"/>
+                
+                <!-- Левый торец стены -->
+                <polygon points="18,22 38,29 38,53 18,46" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round"/>
+                
+                <!-- Фасадная грань кладки -->
+                <polygon points="38,29 82,15 82,39 38,53" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.6" stroke-linejoin="round"/>
+
+                <!-- Горизонтальные швы кладки -->
+                <line x1="38" y1="35" x2="82" y2="21" stroke="#1e293b" stroke-width="1.3"/>
+                <line x1="38" y1="41" x2="82" y2="27" stroke="#1e293b" stroke-width="1.3"/>
+                <line x1="38" y1="47" x2="82" y2="33" stroke="#1e293b" stroke-width="1.3"/>
+
+                <!-- Вертикальные швы блоков (перевязка вразбежку) -->
+                <!-- Ряд 1 -->
+                <line x1="53" y1="24.2" x2="53" y2="30.2" stroke="#1e293b" stroke-width="1.3"/>
+                <line x1="67" y1="19.7" x2="67" y2="25.7" stroke="#1e293b" stroke-width="1.3"/>
+                <!-- Ряд 2 -->
+                <line x1="45" y1="32.8" x2="45" y2="38.8" stroke="#1e293b" stroke-width="1.3"/>
+                <line x1="60" y1="28" x2="60" y2="34" stroke="#1e293b" stroke-width="1.3"/>
+                <line x1="75" y1="23.2" x2="75" y2="29.2" stroke="#1e293b" stroke-width="1.3"/>
+                <!-- Ряд 3 -->
+                <line x1="53" y1="36.2" x2="53" y2="42.2" stroke="#1e293b" stroke-width="1.3"/>
+                <line x1="67" y1="31.7" x2="67" y2="37.7" stroke="#1e293b" stroke-width="1.3"/>
+                <!-- Ряд 4 -->
+                <line x1="45" y1="44.8" x2="45" y2="50.8" stroke="#1e293b" stroke-width="1.3"/>
+                <line x1="60" y1="40" x2="60" y2="46" stroke="#1e293b" stroke-width="1.3"/>
+                <line x1="75" y1="35.2" x2="75" y2="41.2" stroke="#1e293b" stroke-width="1.3"/>
+              </svg>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Заглушка поиска -->
+      <div id="search-empty" class="alert-box alert-warning" hidden>
+        По вашему запросу ничего не найдено. Попробуйте ввести «плита», «лента» или «блоки».
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-disclaimer">
+        Онлайн-сервис строительных расчётов. Все формулы открыты и соответствуют СП 63.13330 и ГОСТ 34028-2016.
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 ИнжСмета PRO</div>
+
+      
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('calc-search');
+    const cards = document.querySelectorAll('.catalog-card');
+    const groups = document.querySelectorAll('.catalog-section');
+    const emptyNotice = document.getElementById('search-empty');
+
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      let totalVisible = 0;
+
+      groups.forEach(group => {
+        let groupVisibleCount = 0;
+        const groupCards = group.querySelectorAll('.catalog-card');
+
+        groupCards.forEach(card => {
+          const text = (card.querySelector('.catalog-card-title').textContent + ' ' + 
+                        card.querySelector('.catalog-card-desc').textContent).toLowerCase();
+          const match = text.includes(q);
+          card.style.display = match ? 'flex' : 'none';
+          if (match) groupVisibleCount++;
+        });
+
+        group.style.display = groupVisibleCount > 0 ? 'block' : 'none';
+        totalVisible += groupVisibleCount;
+      });
+
+      emptyNotice.hidden = (totalVisible > 0);
+    });
+  </script>
+
+</body>
+</html>
