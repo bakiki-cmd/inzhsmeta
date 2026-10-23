@@ -573,3 +573,254 @@
     line-height: 1.4;
   }
 }
+/* ==========================================================================
+   Протокол расчёта
+   ========================================================================== */
+
+.calculation-protocol {
+  min-width: 0;
+  color: var(--color-text, inherit);
+}
+
+.proto-summary {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text, inherit);
+}
+
+.proto-section {
+  min-width: 0;
+  padding: 10px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+
+.proto-section:last-child {
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+
+.proto-section summary {
+  padding: 7px 0;
+  cursor: pointer;
+  line-height: 1.5;
+  font-size: 14px;
+  user-select: none;
+}
+
+.proto-section summary:hover {
+  color: var(--color-primary, #2563eb);
+}
+
+.proto-section summary:focus-visible {
+  outline: 2px solid var(--color-primary, #2563eb);
+  outline-offset: 3px;
+}
+
+/* Таблица с формулами */
+
+.proto-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  table-layout: auto;
+}
+
+.proto-table th,
+.proto-table td {
+  padding: 9px 8px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+
+.proto-table th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  color: var(--color-text-muted, #64748b);
+}
+
+.proto-table th:first-child,
+.proto-table td:first-child {
+  min-width: 140px;
+}
+
+.proto-table th:nth-child(2),
+.proto-table td:nth-child(2) {
+  width: 50%;
+}
+
+.proto-formula {
+  color: var(--color-text-muted, #64748b);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.proto-res {
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Пояснения и допущения */
+
+.proto-note {
+  margin: 8px 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-text-muted, #64748b);
+}
+
+.proto-assumptions {
+  margin: 10px 0;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.proto-assumptions li {
+  margin: 4px 0;
+}
+
+/* Статусы проверок */
+
+.proto-checks {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.proto-checks li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.proto-badge {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+}
+
+.proto-ok {
+  background: #dcfce7;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+.proto-fail {
+  background: #fee2e2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+.proto-na {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+/* Мобильная версия */
+
+@media (max-width: 600px) {
+  .proto-summary {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  
+  .proto-section {
+    padding: 8px 0;
+  }
+  
+  .proto-section summary {
+    font-size: 13px;
+  }
+  
+  .proto-table {
+    font-size: 12px;
+  }
+  
+  .proto-table th,
+  .proto-table td {
+    padding: 8px 6px;
+  }
+  
+  .proto-table th:first-child,
+  .proto-table td:first-child {
+    min-width: 115px;
+  }
+  
+  .proto-table th:nth-child(2),
+  .proto-table td:nth-child(2) {
+    min-width: 180px;
+  }
+  
+  .proto-table th:last-child,
+  .proto-table td:last-child {
+    min-width: 90px;
+  }
+  
+  .proto-formula {
+    font-size: 11px;
+  }
+  
+  .proto-res {
+    font-size: 12px;
+  }
+  
+  .proto-note {
+    font-size: 11px;
+  }
+  
+  .proto-badge {
+    font-size: 9px;
+  }
+}
+
+/* Тёмная тема */
+
+@media (prefers-color-scheme: dark) {
+  .proto-ok {
+    background: #14532d;
+    border-color: #166534;
+    color: #bbf7d0;
+  }
+  
+  .proto-fail {
+    background: #7f1d1d;
+    border-color: #991b1b;
+    color: #fecaca;
+  }
+  
+  .proto-na {
+    background: #334155;
+    border-color: #475569;
+    color: #cbd5e1;
+  }
+}
+
+.proto-table-wrap {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.proto-table {
+  display: table;
+  min-width: 560px;
+}

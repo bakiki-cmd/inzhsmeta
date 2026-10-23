@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Калькулятор плитного фундамента — расчёт бетона, опалубки и арматуры
-</title>
-  <meta name="description" content="Точный онлайн-расчёт монолитной фундаментной плиты: динамический чертёж по размерам, объём бетона, пиломатериал опалубки, арматура и смета по СП 63.13330.">
+  <title>Калькулятор плитного фундамента — расчёт бетона, опалубки и арматуры</title>
+  <meta name="description" content="Предварительный онлайн-расчёт материалов для плитного фундамента: объём бетона, ориентировочный расход арматуры, опалубки и стоимость. Результат требует проверки по проекту и условиям строительства.">
 
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
   <link rel="stylesheet" href="../../assets/css/calculator.css">
+</head>
 
 <body>
 
@@ -140,10 +141,9 @@
                       <option value="М300 (В22,5)" data-sand="1.9" data-gravel="2.8">М300 (В22,5)</option>
                       <option value="М350 (В25)" data-sand="1.5" data-gravel="2.5">М350 (В25)</option>
                       <option value="М400 (В30)" data-sand="1.2" data-gravel="2.2">М400 (В30)</option>
-                      <option value="М450 (В35)" data-sand="1.1" data-gravel="2.0">М450 (В35)</option>
-                      <option value="М500 (В37,5)" data-sand="1.0" data-gravel="1.8">М500 (В37,5)</option>
-                      <option value="М550 (В40)" data-sand="0.9" data-gravel="1.7">М550 (В40)</option>
-                      <option value="М600 (В45)" data-sand="0.8" data-gravel="1.6">М600 (В45)</option>
+<option value="М450 (В35)" data-sand="1.1" data-gravel="2.0">М450 (В35)</option>
+<option value="М500 (В40)" data-sand="1.0" data-gravel="1.8">М500 (В40)</option>
+<option value="М600 (В45)" data-sand="0.8" data-gravel="1.6">М600 (В45)</option>
                     </select>
                   </div>
                 </div>
@@ -160,23 +160,35 @@
             <details class="acc" id="acc-rebar">
               <summary class="acc-summary">
                 <span class="acc-icon" aria-hidden="true">А</span>
-                <span class="acc-head"><span class="acc-title">Арматура</span><span class="acc-status" id="acc-status-rebar">Не добавлено</span></span>
+                <span class="acc-head"><span class="acc-title">Арматура</span><span class="acc-status on" id="acc-status-rebar">По умолчанию</span></span>
               </summary>
               <div class="acc-body">
-                <label class="acc-toggle acc-toggle-bare"><input type="checkbox" class="sw" id="toggle-rebar" aria-label="Включить: Арматура"></label>
+                <label class="acc-toggle"><span>Свои параметры</span><input type="checkbox" class="sw" id="toggle-rebar" aria-label="Свои параметры: Арматура"></label>
                 <fieldset id="block-rebar" class="acc-fields" disabled>
+                  <div class="field-row">
+                    <label class="field-label" for="rebar-stock-length">
+                      <span class="badge-letter">M0</span> Длина хлыста
+                      <details class="hint-tip">
+                        <summary aria-label="Справка">?</summary>
+                        <div class="hint-dropdown">
+                          6 м — нарезка под доставку «Газелью» или манипулятором. 11.7 м — заводской хлыст под длинномер. Влияет на количество стыков внахлёст.
+                        </div>
+                      </details>
+                    </label>
+                    <div class="field-input">
+                      <select id="rebar-stock-length">
+                        <option value="6" selected>6 м (под нарезку / Газель)</option>
+                        <option value="11.7">11.7 м (хлыст / длинномер)</option>
+                      </select>
+                    </div>
+                  </div>
                   <div class="field-row">
                     <label class="field-label" for="rebar-layers"><span class="badge-letter">M1</span> Сетки (ярусы)</label>
                     <div class="field-input">
-                      <select id="rebar-layers" required>
-                        <option value="1">1</option>
-                        <option value="2" selected>2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                      </select>
-                    </div>
+<select id="rebar-layers" required>
+  <option value="1">1 сетка</option>
+  <option value="2" selected>2 сетки</option>
+</select>                    </div>
                   </div>
                   <div class="field-row">
                     <label class="field-label" for="rebar-diameter"><span class="badge-letter">M2</span> Диаметр рабочей</label>
@@ -227,10 +239,10 @@
             <details class="acc" id="acc-formwork">
               <summary class="acc-summary">
                 <span class="acc-icon" aria-hidden="true">О</span>
-                <span class="acc-head"><span class="acc-title">Опалубка</span><span class="acc-status" id="acc-status-formwork">Не добавлено</span></span>
+                <span class="acc-head"><span class="acc-title">Опалубка</span><span class="acc-status on" id="acc-status-formwork">По умолчанию</span></span>
               </summary>
               <div class="acc-body">
-                <label class="acc-toggle acc-toggle-bare"><input type="checkbox" class="sw" id="toggle-formwork" aria-label="Включить: Опалубка"></label>
+                <label class="acc-toggle"><span>Свои параметры</span><input type="checkbox" class="sw" id="toggle-formwork" aria-label="Свои параметры: Опалубка"></label>
                 <fieldset id="block-formwork" class="acc-fields" disabled>
                   <div class="field-row"><label class="field-label" for="board-width"><span class="badge-letter">S1</span> Ширина доски</label><div class="field-input"><input type="number" id="board-width" placeholder="150" value="150" step="any" min="50" max="500" inputmode="decimal" required><span class="field-unit">мм</span></div></div>
                   <div class="field-row"><label class="field-label" for="board-thickness"><span class="badge-letter">S2</span> Толщина доски</label><div class="field-input"><input type="number" id="board-thickness" placeholder="40" value="40" step="any" min="15" max="150" inputmode="decimal" required><span class="field-unit">мм</span></div></div>
@@ -250,7 +262,7 @@
                 <fieldset id="block-estimate" class="acc-fields" disabled>
                   <div class="field-row"><label class="field-label" for="price-concrete">Цена бетона</label><div class="field-input"><input type="number" id="price-concrete" placeholder="5500" min="0" step="any" inputmode="decimal"><span class="field-unit">₽/м³</span></div></div>
                   <div class="field-row"><label class="field-label" for="price-rebar">Цена арматуры</label><div class="field-input"><input type="number" id="price-rebar" placeholder="65000" min="0" step="any" inputmode="decimal"><span class="field-unit">₽/т</span></div></div>
-                  <div class="field-row"><label class="field-label" for="price-board">Цена доски</label><div class="field-input"><input type="number" id="price-board" placeholder="18000" min="0" step="any" inputmode="decimal"><span class="field-unit">₽/м³</span></div></div>
+                  <div class="field-row"><label class="field-label" for="price-board">Цена пиломатериалов (доска и брус)</label><div class="field-input"><input type="number" id="price-board" placeholder="18000" min="0" step="any" inputmode="decimal"><span class="field-unit">₽/м³</span></div></div>
                 </fieldset>
               </div>
             </details>
@@ -258,8 +270,11 @@
           </div>
         </section>
 
-        <div id="form-warn" class="alert-box alert-danger" role="alert" hidden>Заполните выделенные поля корректными значениями или выключите ненужные блоки.</div>
+<div id="form-warn" class="alert-box alert-danger" role="alert" hidden>
+  Заполните выделенные поля корректными значениями или выключите ненужные блоки.
+</div>
 
+<div id="calc-status" class="form-status" hidden role="status"></div>
         <div class="form-actions">
           <button type="submit" class="btn btn-primary btn-submit">Рассчитать фундамент и смету →</button>
         </div>
@@ -491,53 +506,77 @@
 
 
       <!-- FAQ -->
-      <section class="faq-section">
-        <h2 class="faq-title">Вопросы и ответы по плитным фундаментам</h2>
-        <div class="faq-list">
-
-          <details class="faq-item">
-            <summary class="faq-question">Какая оптимальная толщина монолитной плиты для дома?</summary>
-            <div class="faq-answer">Для каркасных и деревянных домов обычно достаточно толщины 20–25 см. Для домов из газобетона, кирпича или керамических блоков толщину плиты чаще принимают от 25 до 30 см с двухслойным пространственным арматурным каркасом по СП 63.13330. Минимальная рекомендуемая толщина — 20 см, так как при меньших значениях невозможно обеспечить нормативные защитные слои бетона для двух сеток.</div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">Зачем нужен технологический запас бетона 5%?</summary>
-            <div class="faq-answer">Запас компенсирует допустимый прогиб и распирание деревянной опалубки под гидростатическим давлением смеси (СП 70.13330), уплотнение песчано-щебёночной подушки, а также технологические остатки бетона в бункере автобетоносмесителя или трассе бетононасоса.</div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">Какой класс и марку бетона заказывать для плиты?</summary>
-            <div class="faq-answer">Для монолитной фундаментной плиты стандартом является товарный бетон класса В22,5 (марка М300) или В25 (марка М350). Для конструкций в грунте критичны также показатели водонепроницаемости (не ниже W6) и морозостойкости (не ниже F150), защищающие фундамент при сезонном промерзании и подъёме грунтовых вод.</div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">Какой диаметр арматуры и шаг ячейки выбрать?</summary>
-            <div class="faq-answer">В индивидуальном домостроении используется горячекатаная рифлёная арматура класса А500С диаметром 12 мм с шагом ячейки 200×200 мм в два яруса. При толщине плиты свыше 30 см или строительстве тяжёлых кирпичных домов рабочий диаметр увеличивают до 14–16 мм. По СП 63.13330 максимальный шаг стержней не должен превышать 1.5 толщины плиты и не более 400 мм.</div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">Зачем нужны П-образные элементы торцов и «лягушки»?</summary>
-            <div class="faq-answer">«Лягушки» служат жёсткими дистанцерами между нижним и верхним ярусами сеток — без них верхний каркас прогнётся под весом рабочих и бетонной смеси при вибрировании. П-образные элементы (П-шки) замыкают контур плиты по периметру: они воспринимают крутящие моменты по краям и предотвращают скалывание бетона под весом несущих стен (СП 63.13330).</div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">Зачем нужны пластиковые фиксаторы и какой защитный слой соблюдать?</summary>
-            <div class="faq-answer">Защитный слой предохраняет металл от влаги и коррозии, а также обеспечивает проектное сцепление арматуры со смесью. По СП 63.13330 для монолитных плит в грунте при наличии песчаной подготовки и гидроизоляционной мембраны защитный слой составляет не менее 35–40 мм. Для точной фиксации высоты нижней сетки применяются пластиковые опоры типа «стульчик»; подкладывать дерево или битый кирпич запрещено.</div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">Какая подготовка основания требуется под плиту?</summary>
-            <div class="faq-answer">Основание состоит из послойно уплотнённой виброплитой песчаной подушки (20–30 см, коэффициент уплотнения не менее 0.95), слоя гранитного щебня фракции 20–40 мм (10–15 см) и разделяющего геотекстиля плотностью 250–300 г/м² на дне котлована. Сверху укладывается плотная гидроизоляционная плёнка (200 мкм) или профилированная мембрана с проклейкой нахлёстов, чтобы цементное молочко не уходило в грунт при заливке.</div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">Через сколько дней можно снимать опалубку и возводить стены?</summary>
-            <div class="faq-answer">При нормальных условиях твердения (среднесуточная температура около +20 °C) боковая опалубка демонтируется через 3–4 дня (набор прочности ~50%). Через 7 суток бетон набирает порядка 70% проектной прочности — в этот момент допускается завозить блоки и начинать кладку первого ряда стен. Полный проектный набор прочности (100%) по СП 70.13330 наступает на 28-е сутки.</div>
-          </details>
-
-        </div>
-      </section>
-
+<section class="faq-section">
+  <h2 class="faq-title">Вопросы и ответы по плитным фундаментам</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary class="faq-question">Как рассчитать объём бетона для плитного фундамента?</summary>
+      <div class="faq-answer">
+        Для расчёта объёма прямоугольной плиты необходимо умножить её длину на ширину и толщину. Все размеры должны быть выражены в одинаковых единицах измерения. Если конструкция включает рёбра, выступы или другие дополнительные элементы, их объём учитывается отдельно с учётом принятой расчётной схемы. Полученный результат представляет собой геометрический объём бетона и не является проверкой несущей способности фундамента.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Зачем нужен запас бетона и какой процент учитывать?</summary>
+      <div class="faq-answer">
+        Запас увеличивает расчётный объём бетона на заданный процент и помогает предварительно оценить количество смеси для заказа. Например, при геометрическом объёме 10 м³ и запасе 5% расчётный объём составит 10,5 м³. Необходимая величина запаса зависит от точности размеров, подготовки основания, особенностей опалубки и технологии бетонирования. Запас не гарантирует компенсацию всех возможных потерь и отклонений на строительной площадке.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Какой класс и марку бетона выбрать для плитного фундамента?</summary>
+      <div class="faq-answer">
+        Требования к бетону определяются проектом с учётом нагрузок, условий эксплуатации и воздействия окружающей среды. При выборе могут учитываться класс бетона по прочности, марка по водонепроницаемости и марка по морозостойкости. Эти характеристики описывают разные свойства материала и не заменяют друг друга. По одному только типу фундамента нельзя универсально определить подходящие характеристики бетонной смеси. Перед заказом бетона следует сверить требования с проектной документацией.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Как рассчитать количество арматуры для плитного фундамента?</summary>
+      <div class="faq-answer">
+        Расход арматуры зависит от размеров плиты, диаметра стержней, шага их расположения, количества сеток и принятой схемы армирования. По заданным параметрам можно предварительно рассчитать количество стержней, их суммарную длину и ориентировочную массу. Диаметр, шаг, количество рабочих сеток и схема армирования должны определяться проектом с учётом нагрузок и расчётных условий. Расчёт количества материала сам по себе не подтверждает прочность и безопасность конструкции.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Для чего нужны дистанционные элементы между сетками и П-образная арматура?</summary>
+      <div class="faq-answer">
+        Дистанционные элементы помогают сохранять предусмотренное проектом расстояние между нижней и верхней сетками арматуры во время монтажа и бетонирования. П-образные и другие дополнительные арматурные элементы применяются в соответствии с принятой конструктивной схемой. Их форма, расположение и количество зависят от проекта. Необходимость таких элементов и их параметры нельзя определять только по общим размерам плиты.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Для чего нужны фиксаторы арматуры и как определить защитный слой бетона?</summary>
+      <div class="faq-answer">
+        Фиксаторы помогают обеспечить проектное положение арматуры и требуемую толщину защитного слоя бетона. Защитный слой предохраняет арматуру от воздействия окружающей среды и обеспечивает условия её сцепления с бетоном. Необходимая толщина зависит от расположения арматуры, условий эксплуатации, типа конструкции и требований проекта. Для установки следует использовать подходящие фиксаторы, обеспечивающие устойчивое положение арматуры при бетонировании.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Какая подготовка основания требуется под плитный фундамент?</summary>
+      <div class="faq-answer">
+        Состав и толщину подготовительных слоёв определяют с учётом инженерно-геологических условий, проектных решений и технологии строительства. В зависимости от условий могут предусматриваться песчаная или щебёночная подготовка, разделительные материалы, гидроизоляция и другие элементы. Толщина слоёв, требования к уплотнению и характеристики материалов должны соответствовать проекту. Универсальной схемы подготовки, подходящей для всех участков и типов грунта, не существует.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Когда можно снимать опалубку и возводить стены?</summary>
+      <div class="faq-answer">
+        Сроки снятия опалубки и начала дальнейших строительных работ зависят от фактической прочности бетона, температуры и условий твердения, особенностей конструкции и требований проекта. Возраст бетона сам по себе не подтверждает готовность фундамента к дополнительным нагрузкам. Перед распалубкой и началом возведения стен необходимо убедиться, что бетон достиг требуемой прочности и что дальнейшие работы допускаются проектом и применимыми требованиями.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Как рассчитать стоимость материалов для плитного фундамента?</summary>
+      <div class="faq-answer">
+        Для предварительной сметы необходимо определить расчётное количество материалов и указать их цены. Стоимость каждой позиции рассчитывается умножением количества материала на его цену, после чего складываются стоимости всех учтённых позиций. Итоговая сумма зависит от введённых исходных данных, цен и состава сметы. Доставка, строительные работы, аренда оборудования и другие расходы учитываются отдельно, если они не включены в расчёт.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Насколько точны результаты калькулятора плитного фундамента?</summary>
+      <div class="faq-answer">
+        Результаты зависят от правильности введённых размеров, параметров материалов и используемых расчётных формул. Геометрический объём бетона, расчётное количество арматуры и предварительная стоимость материалов являются оценочными показателями, если отдельно не предусмотрены дополнительные проверки. Фактический расход может отличаться от расчётного из-за особенностей монтажа, раскроя, технологии работ и других условий строительной площадки. Перед закупкой материалов результаты следует сверить с проектом и фактическими условиями строительства.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Можно ли использовать результаты калькулятора вместо проекта фундамента?</summary>
+      <div class="faq-answer">
+        Нет. Калькулятор предназначен для предварительной оценки количества строительных материалов и, при наличии соответствующих данных, их стоимости. Он не заменяет инженерно-геологические изыскания, расчёт основания, проверку несущей способности и деформаций, расчёт армирования и разработку проектной документации. Конструктивные решения должны приниматься с учётом характеристик грунта, нагрузок, условий эксплуатации и применимых строительных требований.
+      </div>
+    </details>
+  </div>
+</section>
 
     </div>
   </main>
@@ -545,8 +584,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-disclaimer">
-        Онлайн-сервис строительных расчётов. Все формулы открыты и соответствуют СП 63.13330 и ГОСТ 34028-2016.
-      </div>
+Онлайн-сервис строительных расчётов. Открытые формулы, прозрачная методика вычислений и расчёт материалов с учётом строительных нормативов (СП 63.13330, СП 22.13330, СП 70.13330). Расчётные допущения и ориентировочные значения указаны отдельно.      </div>
       <div class="footer-bottom">
         <div>&copy; 2026 ИнжСмета PRO</div>
       </div>
@@ -568,18 +606,30 @@
 
     function mark(k, on) {
       var e = $('acc-status-' + k);
-      if (e) {
+      if (!e) return;
+
+      if (k === 'rebar' || k === 'formwork') {
+        // Для арматуры и опалубки статус всегда подсвечен (on), меняется только текст режима
+        e.textContent = on ? 'Свои параметры' : 'По умолчанию';
+        e.classList.add('on');
+      } else if (k === 'concrete') {
+        var manual = $('toggle-manual-mix').checked;
+        e.textContent = manual ? 'Замес вручную' : (v('concrete-grade') ? 'Выбрано' : 'По умолчанию');
+        e.classList.add('on');
+      } else if (k === 'estimate') {
+        // Для сметы сохраняем логику включено/выключено
         e.textContent = on ? 'Добавлено' : 'Не добавлено';
         e.classList.toggle('on', on);
       }
     }
 
     function status() {
-      mark('concrete', !!v('concrete-grade') || $('toggle-manual-mix').checked);
-      ['rebar', 'formwork', 'estimate'].forEach(function (k) {
-        mark(k, $('toggle-' + k).checked);
-      });
+      mark('concrete', $('toggle-manual-mix').checked);
+      mark('rebar', $('toggle-rebar').checked);
+      mark('formwork', $('toggle-formwork').checked);
+      mark('estimate', $('toggle-estimate').checked);
     }
+
 
     pairs.forEach(function (p) {
       var t = $(p[0]), f = $(p[1]);
