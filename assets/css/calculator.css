@@ -8,32 +8,40 @@
    1. Шапка калькулятора (Заголовок слева, 3D-плита справа)
    ========================================================================== */
 .hero-split {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
-  gap: 8px 12px;
-  align-items: center;
-  margin-bottom: 20px;
+  display: block;
+  margin-bottom: 14px;
+  /* было 20px */
 }
 
 .hero-text {
-  display: contents;
+  display: block;
 }
 
 .hero-split .hero-title {
-  grid-column: 1;
-  grid-row: 1;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 800;
-  line-height: 1.2;
-  margin: 0;
+  line-height: 1.15;
+  margin: 0 0 10px;
   color: var(--color-text-main);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+
+.hero-split .hero-subtitle {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 460px;
+  text-align: center;
 }
 
 .hero-art {
-  grid-column: 2;
-  grid-row: 1;
+  width: 100%;
+  max-width: 240px;
+  margin: 10px auto 0;
 }
+
 
 .hero-art svg {
   width: 100%;
@@ -41,20 +49,7 @@
   display: block;
 }
 
-.hero-split .hero-subtitle {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  font-size: 0.88rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  margin: 4px 0 0;
-}
-
 @media (min-width: 768px) {
-  .hero-split {
-    gap: 16px 24px;
-    margin-bottom: 24px;
-  }
   .hero-split .hero-title {
     font-size: 2.1rem;
   }
@@ -62,10 +57,10 @@
     font-size: 1rem;
   }
   .hero-art {
-    max-width: 280px;
-    margin-left: auto;
+    max-width: 300px;
   }
 }
+
 
 /* ==========================================================================
    2. Блок результатов (Крупные цифры объёма бетона)

@@ -353,7 +353,7 @@ function setCalcStatus(message, isError = false) {
 
 function clearFormWarning() {
   const warn = byId('form-warn');
-  if (warn) { warn.hidden = true; warn.textContent = ''; }
+  if (warn) warn.hidden = true;
 }
 
 function invalidateLastCalc() {

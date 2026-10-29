@@ -83,7 +83,7 @@
   border: 1px solid var(--color-border);
   border-radius: 0 !important;
   padding: 18px 16px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -107,6 +107,18 @@
   color: var(--color-text-muted);
   margin: -10px 0 14px;
 }
+
+/* Второй блок внутри общей карточки */
+.panel-section {
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.panel-section .panel-title {
+  margin-bottom: 12px;
+}
+
 
 /* ==========================================================================
    3. Строки ввода и поля (.field-row, .field-input, .badge-letter)
@@ -191,7 +203,7 @@
   gap: 8px;
   font-size: 0.78rem;
   color: var(--color-text-muted);
-  margin: 6px 0 14px;
+  margin: 6px 0 8px;
   line-height: 1.4;
 }
 
